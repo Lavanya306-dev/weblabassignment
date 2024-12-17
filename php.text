@@ -1,0 +1,20 @@
+<?php
+// Check if the form data is sent via POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $address = htmlspecialchars($_POST['address']);
+
+    // Prepare the response as an array
+    $response = array(
+        "name" => $name,
+        "email" => $email,
+        "phone" => $phone,
+        "address" => $address
+    );
+
+    // Send the response back as JSON
+    echo json_encode($response);
+}
+?>
